@@ -148,8 +148,10 @@
 .sk-toast{position:fixed;left:50%;bottom:1.5rem;transform:translateX(-50%) translateY(140%);z-index:120;
   display:flex;align-items:center;gap:.6rem;padding:.8rem 1.3rem;border-radius:9999px;
   background:var(--sk-noir);color:var(--sk-cream);font-size:.9rem;font-weight:600;
-  box-shadow:0 12px 30px -8px rgba(0,0,0,.5);transition:transform .3s cubic-bezier(.22,1,.36,1);}
-.sk-toast.is-on{transform:translateX(-50%) translateY(0);}
+  box-shadow:0 12px 30px -8px rgba(0,0,0,.5);
+  opacity:0;visibility:hidden;pointer-events:none;
+  transition:transform .3s cubic-bezier(.22,1,.36,1),opacity .3s ease,visibility .3s ease;}
+.sk-toast.is-on{transform:translateX(-50%) translateY(0);opacity:1;visibility:visible;}
 
 /* floating mobile cart bar */
 .sk-cartbar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;align-items:center;justify-content:space-between;
