@@ -425,5 +425,5 @@ class Component extends DCLogic {
   }
 }
 </script>
-</body>
+<script id="open-status-js">(function(){var H={0:[[12,21]],1:[],2:[[16,22]],3:[[16,22]],4:[[16,22]],5:[[16,23]],6:[[12,23]]};function nowNY(){try{var p=new Intl.DateTimeFormat("en-US",{timeZone:"America/New_York",weekday:"short",hour:"2-digit",minute:"2-digit",hour12:false}).formatToParts(new Date());var o={};p.forEach(function(x){o[x.type]=x.value;});var D={Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6};var h=parseInt(o.hour,10);if(h>=24)h-=24;return{d:D[o.weekday],t:h+parseInt(o.minute,10)/60};}catch(e){var n=new Date();return{d:n.getDay(),t:n.getHours()+n.getMinutes()/60};}}function isOpen(){var n=nowNY();return (H[n.d]||[]).some(function(s){return n.t>=s[0]&&n.t<s[1];});}function render(){var op=isOpen();var c=op?"#10b981":"#9ca3af";document.querySelectorAll(".js-open-status").forEach(function(el){var d=el.querySelector(".js-open-dot"),t=el.querySelector(".js-open-text");if(t){t.textContent=op?"Open Now":"Closed";t.style.color=c;}if(d)d.style.background=c;el.style.background=op?"rgba(16,185,129,0.12)":"rgba(148,163,184,0.14)";});}render();setInterval(render,60000);})();</script></body>
 </html>
